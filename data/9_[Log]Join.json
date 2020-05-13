@@ -1,0 +1,80 @@
+{
+  "name": "[Log]Join",
+  "temp": "mem",
+  "event-type": "6",
+  "_id": "SvLrU",
+  "actions": [
+    {
+      "member": "2",
+      "varName": "mem",
+      "info": "3",
+      "storage": "1",
+      "varName2": "nick",
+      "name": "Store Member Info"
+    },
+    {
+      "storage": "1",
+      "varName": "nick",
+      "comparison": "5",
+      "value": "\"!\"",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "2",
+      "name": "Check Variable"
+    },
+    {
+      "behavior": "1",
+      "interpretation": "0",
+      "code": "var string = tempVars(\"nick\");\nvar newString = string.replace('!','');\nthis.storeValue(newString, 1, \"newnick\", cache);\nthis.callNextAction(cache);",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "nickname": "${tempVars(\"newnick\")}",
+      "name": "Set Member Nickname"
+    },
+    {
+      "comment": "^ Nick Check ^",
+      "color": "#000000",
+      "name": "Comment"
+    },
+    {
+      "channel": "7",
+      "varName": "log-channel",
+      "message": "${tempVars(\"mem\").user.tag} (${tempVars(\"mem\").user.id}) joined ${tempVars(\"mem\").guild.name}",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "member": "2",
+      "varName": "mem",
+      "dataName": "rules_accepted",
+      "comparison": "1",
+      "value": "1",
+      "iftrue": "1",
+      "iftrueVal": "",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Member Data"
+    },
+    {
+      "info": "1",
+      "find": "Pending Rule Check",
+      "storage": "1",
+      "varName": "pending-role",
+      "name": "Find Role"
+    },
+    {
+      "member": "2",
+      "varName2": "mem",
+      "role": "3",
+      "varName": "pending-role",
+      "name": "Add Member Role"
+    }
+  ]
+}

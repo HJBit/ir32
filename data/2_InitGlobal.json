@@ -1,0 +1,85 @@
+{
+  "name": "InitGlobal",
+  "temp": "",
+  "event-type": "1",
+  "_id": "nAedT",
+  "actions": [
+    {
+      "server": "0",
+      "varName": "",
+      "info": "0",
+      "storage": "1",
+      "varName2": "guild",
+      "name": "Store Server Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "tempVars(\"guild\").fetchMembers()",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "info": "1",
+      "find": "Moderator",
+      "storage": "1",
+      "varName": "mod-role",
+      "name": "Find Role"
+    },
+    {
+      "info": "1",
+      "find": "Helper",
+      "storage": "1",
+      "varName": "helper-role",
+      "name": "Find Role"
+    },
+    {
+      "storage": "1",
+      "varName": "mod-role",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "roleName": "",
+      "hoist": "none",
+      "mentionable": "true",
+      "color": "",
+      "position": "",
+      "storage": "3",
+      "varName": "mod-role",
+      "name": "Edit Role"
+    },
+    {
+      "storage": "1",
+      "varName": "helper-role",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "",
+      "iffalse": "3",
+      "iffalseVal": "1",
+      "name": "Check Variable"
+    },
+    {
+      "roleName": "",
+      "hoist": "none",
+      "mentionable": "true",
+      "color": "",
+      "position": "",
+      "storage": "3",
+      "varName": "helper-role",
+      "name": "Edit Role"
+    },
+    {
+      "comment": ">.>",
+      "color": "#000000",
+      "name": "Comment"
+    }
+  ]
+}

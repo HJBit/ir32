@@ -1,0 +1,92 @@
+{
+  "name": "[Call]SyncRolesRemove",
+  "temp": "",
+  "event-type": "0",
+  "_id": "TMZwk",
+  "actions": [
+    {
+      "time": "100",
+      "measurement": "0",
+      "name": "Wait"
+    },
+    {
+      "server": "3",
+      "varName": "staff-server",
+      "name": "Change Server"
+    },
+    {
+      "info": "1",
+      "find": "${tempVars(\"role\").name}",
+      "storage": "1",
+      "varName": "role-on-staff",
+      "name": "Find Role"
+    },
+    {
+      "storage": "1",
+      "varName": "role-on-staff",
+      "comparison": "0",
+      "value": "",
+      "iftrue": "0",
+      "iftrueVal": "12",
+      "iffalse": "2",
+      "iffalseVal": "11",
+      "name": "Check Variable"
+    },
+    {
+      "member": "2",
+      "varName": "staffmember",
+      "role": "3",
+      "varName2": "role-on-staff",
+      "iftrue": "2",
+      "iftrueVal": "11",
+      "iffalse": "0",
+      "iffalseVal": "11",
+      "name": "Check If Member has Role"
+    },
+    {
+      "role": "3",
+      "varName": "role-on-staff",
+      "info": "2",
+      "storage": "1",
+      "varName2": "name",
+      "name": "Store Role Info"
+    },
+    {
+      "storage": "1",
+      "varName": "name",
+      "comparison": "1",
+      "value": "\"@everyone\"",
+      "iftrue": "2",
+      "iftrueVal": "11",
+      "iffalse": "0",
+      "iffalseVal": "",
+      "name": "Check Variable"
+    },
+    {
+      "member": "2",
+      "varName2": "member",
+      "role": "3",
+      "varName": "role",
+      "name": "Remove Member Role"
+    },
+    {
+      "message": "1",
+      "varName": "stat-msg",
+      "info": "2",
+      "storage": "1",
+      "varName2": "stat-msg-txt",
+      "name": "Store Message Info"
+    },
+    {
+      "storage": "1",
+      "varName": "stat-msg",
+      "message": "${tempVars(\"stat-msg-txt\")}\n➖ Removed ${tempVars(\"role\").name}",
+      "name": "Edit Message"
+    },
+    {
+      "comment": "Skip",
+      "color": "#000000",
+      "name": "Comment"
+    }
+  ]
+}
